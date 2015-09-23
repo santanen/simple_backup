@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# functions.sh
+# functions used by simple_backup.sh
+#
 function read_endpoint_config() {
   if [ -f $1/endpoint.config ]; then
     . $1/endpoint.config

@@ -1,5 +1,7 @@
 #!/bin/bash
+#
 # simple_backup.sh
+# main executable
 
 # change to script directory
 dir=`dirname $0`
@@ -30,6 +32,10 @@ fi
 
 # loop through endpoint directories and run actions
 for d in *.d; do
+  # skip example directory www.example.com.d
+  if [ $d == "www.example.com.d" ]; then
+    continue
+  fi
   #
   # read endpoints configuration; if read fails, continue to next...
   #
@@ -42,6 +48,11 @@ for d in *.d; do
     printf "success\n"
   fi
   # done reading endpoint configuration
+  #
+  # run remote script prior to backup operations
+  if [ -f $d/endpoint_script.sh ]; then
+    ssh $IDENTITY 'bash -s' < $d/endpoint_script.sh
+  fi
 
   SOURCEBASE=$IDENTITY:
   TARGET=$BASETARGET$SOURCEBASE/$prefix
@@ -52,5 +63,4 @@ for d in *.d; do
   else
     take_snapshot
   fi
-
 done
