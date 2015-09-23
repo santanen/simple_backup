@@ -53,8 +53,12 @@ for d in *.d; do
   if [ -f $d/endpoint_script.sh ]; then
     ssh $IDENTITY 'bash -s' < $d/endpoint_script.sh
   fi
+  # check if ssh or local and create SOURCEBASE accordingly
+  SOURCEBASE=$IDENTITY
+  if [ $PROTOCOL == "ssh" ]; then
+    SOURCEBASE=$SOURCEBASE:
+  fi
 
-  SOURCEBASE=$IDENTITY:
   TARGET=$BASETARGET$SOURCEBASE/$prefix
 
   rotate_backups
