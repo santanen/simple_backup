@@ -1,4 +1,4 @@
-### simple_backup
+# simple_backup
 An rsync/ssh based backup script with configuration options for multiple endpoints and directory structures for each. *Simpe_backup* is inspired by Mike Rubel's http://www.mikerubel.org/computers/rsync_snapshots/. Read it to understand the approach.
 
 ##Features
