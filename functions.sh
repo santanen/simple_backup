@@ -43,8 +43,8 @@ function make_backup() {
   do
       #Create BASETARGET + SOURCE directory if not exists
       [[ -d $TARGET.0/$SOURCE ]] || $MKDIR -p $TARGET.0/$SOURCE
-      echo $TARGET.0/$SOURCE
-      echo $SOURCEBASE$SOURCE
+      printf "Sync source: \t%s%s\n" "$SOURCEBASE" "$SOURCE"
+      printf "Sync target: \t%s.0/%s\n" "$TARGET" "$SOURCE"
 
       $RSYNC                                                     \
           -vam --delete --delete-excluded                         \
