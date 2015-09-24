@@ -32,5 +32,8 @@ Simple_backup relies on [rsync](https://rsync.samba.org/) and common binaries (s
 2. Be careful with slashes `/` in the directory listings etc. I should have added a bit more automatic prettyfying in the scripts...
 3. I use rolling backups on a daily basis and on top of that weekly and monthly snapshots. Thus I have always approx 4 months of pretty decent backups available.
 
+##Disclaimer
+Simple_backup comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. See the GNU General Public Licence for details.
+
 
 
