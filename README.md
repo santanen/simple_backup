@@ -26,5 +26,11 @@ Simple_backup relies on [rsync](https://rsync.samba.org/) and common binaries (s
 9. To make a snapshot, run `./simple_backup.sh [snapshot_name]`. [snapshot_name] can be e.g. weekly or monthly or whatever. Your backup directory will start building snapshots with that name.
 10. Once everything works from the command line, I recommend preparing meaningful **cron jobs** to get things automated.
 
+## Notes
+
+1. Rolling backups as well as snapshots are statically defined to keep 4 consecutive versions, not more or less. The amount of consecutive versions to be kept in the backup archive should be set in the configuration file(s), but that is for later...
+2. Be careful with slashes `/` in the directory listings etc. I should have added a bit more automatic prettyfying in the scripts...
+3. I use rolling backups on a daily basis and on top of that weekly and monthly snapshots. Thus I have always approx 4 months of pretty decent backups available.
+
 
 
